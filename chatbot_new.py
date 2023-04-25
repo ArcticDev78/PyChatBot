@@ -40,11 +40,11 @@ def chatbot():
     db = {
         'greetings': {
             'triggers': ['hi', 'hey', 'hello', 'heyya', 'heyya', 'sup', 'wassup', 'yo', 'ello'],  # noqa
-            'responses': ['Hello there!', 'Hi!', 'Hey!', 'What\'s up?', 'Sup!'],  # noqa
+            'responses': [f'Hello there, {name}!', f'Hi, {name}!', f'Hey, {name}!', f'What\'s up, {name}?', 'Sup, {name}!'],  # noqa
         },
         'bye': {
             'triggers': ['bye', 'cya', 'gtg', 'ttyl', 'i gtg', 'gtg bye'],
-            'responses': ['See you later!', 'Bye!', 'Cya!'],
+            'responses': [f'See you later, {name}!', f'Bye, {name}!', f'Cya later, {name}!'],
         },
         'thankyou': {
             'triggers': ['ty', 'tysm', 'thanks', 'thank you'],
@@ -72,7 +72,7 @@ def chatbot():
         },
         'nameask': {
             'triggers': ['what\'s your name?', 'whats your name?', 'what\'s your name', 'whats your name', 'whats ur name', 'whats ur name?'],  # noqa
-            'responses': f'My name is {chatbotName}, the awesome chatbot!',
+            'responses': f'My name is {chatbotName}, the awesome chatbot! Nice to meet you, {name}',
         },
         'noyou': {
             'triggers': ['no u', 'no you'],
@@ -81,6 +81,10 @@ def chatbot():
         'stutterwords': {
             'triggers': ["uh", "uhm", "uh-", "uhm-", "uhh"],
             'responses': ["Hm?", "?", "What?"],
+        },
+        'lol': {
+            'triggers': ['lol', 'lmao', 'haha', 'hahaha', 'hehe', 'xd'],
+            'responses': ['Haha!', 'Funny, right?', 'xD'],
         }
     }
 
@@ -117,34 +121,32 @@ def chatbot():
     elif userinput in db['stutterwords']['triggers']:
         sendBotMsg(random(db['stutterwords']['responses']))
 
+    elif userinput in db['lol']['triggers']:
+        sendBotMsg(random(db['lol']['responses']))
+
     elif userinput == 'idk':
-        print('You don\'t know?')
+        sendBotMsg('You don\'t know?')
 
     elif userinput == 'why':
-        print('I don\'t know either.')
+        sendBotMsg('I don\'t know either.')
 
     elif userinput == 'ok boomer':
-        print("Sure. Who is your best friend?")
-
-    elif userinput == 'lol':
-        replies = ['Haha!', 'Funny, right?', 'xD']
-        result = replies[randint(0, 2)]
-        print(result)
+        sendBotMsg("Sure. Who is your best friend?")
 
     elif userinput == 'hmm':
-        print("Hmmm.")
+        sendBotMsg("Hmmm.")
 
     elif userinput == 'sad':
-        print("No, never be sad!")
+        sendBotMsg("No, never be sad!")
 
     elif userinput == 'fine':
-        print('Fine!')
+        sendBotMsg('Fine!')
 
     elif userinput == 'ping':
-        print("Pong!")
+        sendBotMsg("Pong!")
 
     elif userinput == 'are you here':
-        print('Yes! I am here!')
+        sendBotMsg('Yes! I am here!')
 
     elif userinput == 'tell me a joke':
         replies = ['Today at the bank, an old lady asked me to help check her balance. So I pushed her over.',  # noqa
@@ -153,7 +155,7 @@ def chatbot():
                    'What do you call a guy with a rubber toe? Roberto.',
                    'What did the pirate say when he turned 80 years old? Aye matey.'  # noqa
                    ]
-        result = replies[randint(0, 4)]
+        result = random(replies)
         print(result)
 
     elif userinput == 'so what':
