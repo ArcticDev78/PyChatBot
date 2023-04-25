@@ -1,6 +1,8 @@
 """ IMPORTS """
 from random import randint
 import time
+import requests
+import json
 
 # Chatbot name variable (you can change it to your liking)
 chatbotName = 'Chatbot'
@@ -40,7 +42,7 @@ def chatbot():
     db = {
         'greetings': {
             'triggers': ['hi', 'hey', 'hello', 'heyya', 'heyya', 'sup', 'wassup', 'yo', 'ello'],  # noqa
-            'responses': [f'Hello there, {name}!', f'Hi, {name}!', f'Hey, {name}!', f'What\'s up, {name}?', 'Sup, {name}!'],  # noqa
+            'responses': [f'Hello there, {name}!', f'Hi, {name}!', f'Hey, {name}!', f'What\'s up, {name}?', f'Sup, {name}!'],  # noqa
         },
         'bye': {
             'triggers': ['bye', 'cya', 'gtg', 'ttyl', 'i gtg', 'gtg bye'],
@@ -149,14 +151,15 @@ def chatbot():
         sendBotMsg('Yes! I am here!')
 
     elif userinput == 'tell me a joke':
-        replies = ['Today at the bank, an old lady asked me to help check her balance. So I pushed her over.',  # noqa
-                   'My dog used to chase people on a bike a lot. It got so bad, finally I had to take his bike away.',  # noqa
-                   'Why is Peter Pan always flying? He neverlands.',
-                   'What do you call a guy with a rubber toe? Roberto.',
-                   'What did the pirate say when he turned 80 years old? Aye matey.'  # noqa
-                   ]
-        result = random(replies)
-        print(result)
+        #         replies = ['Today at the bank, an old lady asked me to help check her balance. So I pushed her over.',  # noqa
+        #                    'My dog used to chase people on a bike a lot. It got so bad, finally I had to take his bike away.',  # noqa
+        #                    'Why is Peter Pan always flying? He neverlands.',
+        #                    'What do you call a guy with a rubber toe? Roberto.',  # noqa
+        #                    'What did the pirate say when he turned 80 years old? Aye matey.'  # noqa
+        #                    ]
+        data = requests.get(r"https://official-joke-api.appspot.com/random_joke")  # noqa
+        joke = json.loads(data.text)
+        print(f'{joke["setup"]}\n{joke["punchline"]}')
 
     elif userinput == 'so what':
         print("Idk")

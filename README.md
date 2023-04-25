@@ -4,6 +4,6 @@
 
 - [x] Make random() function
 - [x] Implement random() function in code
-- [ ] Use an API to fetch jokes
+- [x] Use an API to fetch jokes
 - [ ] Implement games like 8-Ball, Flip the coin, etc.
 - [ ] Make GUI interface for it
