@@ -1,4 +1,4 @@
 # PyChatBot
 
-TODO: make random() function
-TODO: Make GUI interface for it
+- [ ] Make random() function
+- [ ] Make GUI interface for it
