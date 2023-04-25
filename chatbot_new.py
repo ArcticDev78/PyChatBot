@@ -1,6 +1,8 @@
 """ IMPORTS """
 from random import randint
 import time
+import requests
+import json
 
 # Chatbot name variable (you can change it to your liking)
 chatbotName = 'Chatbot'
@@ -12,7 +14,7 @@ chatbotName = 'Chatbot'
 
 def sendBotMsg(message):
     time.sleep(0.2)
-    print(message)
+    print(f'{chatbotName}: {message}')
 
 
 # Random function for returning random response from the given dictionary arrray.  # noqa
@@ -25,11 +27,11 @@ def random(array):
 """ INTRODUCTION """
 
 # Make the chatbot introduce itself
-print(f'{chatbotName}: Hi! My name is {chatbotName}. What\'s your name?')
+sendBotMsg(f'Hi! My name is {chatbotName}. What\'s your name?')
 # Ask for the user's name (for the conversation)
 name = input('[YOU] My name is: ')
-sendBotMsg(f'{chatbotName}: Nice to meet you, {name}!')
-sendBotMsg(f'{chatbotName}: I am a Chatbot and I can do basic things like have conversations with you.\n')  # noqa
+sendBotMsg(f'Nice to meet you, {name}!')
+sendBotMsg('I am a Chatbot and I can do basic things like have conversations with you.\n')  # noqa
 
 
 def chatbot():
@@ -40,7 +42,7 @@ def chatbot():
     db = {
         'greetings': {
             'triggers': ['hi', 'hey', 'hello', 'heyya', 'heyya', 'sup', 'wassup', 'yo', 'ello'],  # noqa
-            'responses': [f'Hello there, {name}!', f'Hi, {name}!', f'Hey, {name}!', f'What\'s up, {name}?', 'Sup, {name}!'],  # noqa
+            'responses': [f'Hello there, {name}!', f'Hi, {name}!', f'Hey, {name}!', f'What\'s up, {name}?', f'Sup, {name}!'],  # noqa
         },
         'bye': {
             'triggers': ['bye', 'cya', 'gtg', 'ttyl', 'i gtg', 'gtg bye'],
@@ -149,20 +151,15 @@ def chatbot():
         sendBotMsg('Yes! I am here!')
 
     elif userinput == 'tell me a joke':
-        replies = ['Today at the bank, an old lady asked me to help check her balance. So I pushed her over.',  # noqa
-                   'My dog used to chase people on a bike a lot. It got so bad, finally I had to take his bike away.',  # noqa
-                   'Why is Peter Pan always flying? He neverlands.',
-                   'What do you call a guy with a rubber toe? Roberto.',
-                   'What did the pirate say when he turned 80 years old? Aye matey.'  # noqa
-                   ]
-        result = random(replies)
-        print(result)
+        data = requests.get(r"https://official-joke-api.appspot.com/random_joke")  # noqa
+        joke = json.loads(data.text)
+        sendBotMsg(f'{joke["setup"]}\n         {joke["punchline"]}')
 
     elif userinput == 'so what':
-        print("Idk")
+        sendBotMsg("Idk")
 
     else:
-        print("I'm not sure I understand.")
+        sendBotMsg("I'm not sure I understand.")
 
 
 # Use an infinite loop to keep the conversation going
