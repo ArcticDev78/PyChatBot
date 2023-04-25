@@ -13,6 +13,12 @@ def sendBotMsg(message):
     print(message)
 
 
+def random(array):
+    arrayLength = len(array)
+    rand = randint(0, arrayLength-1)
+    return array[rand]
+
+
 """ INTRODUCTION """
 
 # Make the chatbot introduce itself
@@ -78,6 +84,7 @@ def chatbot():
 
     if userinput in db['greetings']['triggers']:
         # replies = ['Hello there!', 'Hi!', 'Hey!', 'What\'s up?', 'Sup!']
+        # print(random(db['noyou']['responses']))
         result = db['greetings']['responses'][randint(0, 4)]
         sendBotMsg(result)
 
