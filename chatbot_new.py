@@ -7,12 +7,15 @@ chatbotName = 'Chatbot'
 
 """ FUNCTIONS """
 
+# Send the chatbot's message with a delay of 0.2s so that it feels real
+
 
 def sendBotMsg(message):
     time.sleep(0.2)
     print(message)
 
 
+# Random function for returning random response from the given dictionary arrray.  # noqa
 def random(array):
     arrayLength = len(array)
     rand = randint(0, arrayLength-1)
@@ -30,8 +33,10 @@ sendBotMsg(f'{chatbotName}: I am a Chatbot and I can do basic things like have c
 
 
 def chatbot():
+    # Take the user input through a simple input function
     userinput = input("[YOU] > ").lower()
 
+    # Store the triggers and responses in a dictionary
     db = {
         'greetings': {
             'triggers': ['hi', 'hey', 'hello', 'heyya', 'heyya', 'sup', 'wassup', 'yo', 'ello'],  # noqa
@@ -78,53 +83,50 @@ def chatbot():
             'responses': ["Hm?", "?", "What?"],
         }
     }
-    # greetingtriggers = [
-    # 'hi', 'hey', 'hello', 'heyya', 'hewwo', 'sup', 'wassup', 'yo'
-    # ]
 
     if userinput in db['greetings']['triggers']:
         # print(random(db['noyou']['responses']))
-        result = db['greetings']['responses'][randint(0, 4)]
-        sendBotMsg(result)
+        # result = db['greetings']['responses'][randint(0, 4)]
+        sendBotMsg(random(db['greetings']['responses']))
 
     elif userinput in db['bye']['triggers']:
-        result = db['bye']['responses'][randint(0, 2)]
-        sendBotMsg(result)
+        # result = db['bye']['responses'][randint(0, 2)]
+        sendBotMsg(random(db['bye']['responses']))
 
     elif userinput in db['thankyou']['triggers']:
-        result = db['bye']['responses'][randint(0, 2)]
-        sendBotMsg(result)
+        # result = db['bye']['responses'][randint(0, 2)]
+        sendBotMsg(random(db['thankyou']['responses']))
 
     elif userinput in db['good']['triggers']:
-        result = db['good']['responses'][randint(0, 1)]
-        sendBotMsg(result)
+        # result = db['good']['responses'][randint(0, 1)]
+        sendBotMsg(random(db['good']['responses']))
 
     elif userinput in db['ok']['triggers']:
-        result = db['ok']['responses'][randint(0, 1)]
-        sendBotMsg(result)
+        # result = db['ok']['responses'][randint(0, 1)]
+        sendBotMsg(random(db['ok']['responses']))
 
     elif userinput in db['yes']['triggers']:
-        result = db['yes']['responses'][randint(0, 1)]
-        sendBotMsg(result)
+        # result = db['yes']['responses'][randint(0, 1)]
+        sendBotMsg(random(db['yes']['responses']))
 
     elif userinput in db['no']['triggers']:
-        result = db['no']['responses'][randint(0, 1)]
-        sendBotMsg(result)
+        # result = db['no']['responses'][randint(0, 1)]
+        sendBotMsg(random(db['no']['responses']))
 
     elif userinput in db['bored']['triggers']:
-        result = db['bored']['responses'][randint(0, 1)]
-        sendBotMsg(result)
+        # result = db['bored']['responses'][randint(0, 1)]
+        sendBotMsg(random(db['bored']['responses']))
 
     elif userinput in db['nameask']['triggers']:
         sendBotMsg(db['nameask']['responses'])
 
     elif userinput in db['noyou']['triggers']:
-        result = db['noyou']['responses'][randint(0, 1)]
-        sendBotMsg(result)
+        # result = db['noyou']['responses'][randint(0, 1)]
+        sendBotMsg(random(db['noyou']['responses']))
 
     elif userinput in db['stutterwords']['triggers']:
-        result = db['stutterwords']['responses'][randint(0, 2)]
-        sendBotMsg(result)
+        # result = db['stutterwords']['responses'][randint(0, 2)]
+        sendBotMsg(random(db['stutterwords']['responses']))
 
     elif userinput == 'idk':
         print('You don\'t know?')
@@ -169,7 +171,7 @@ def chatbot():
         print("Idk")
 
     else:
-        print("I'm not sure I understand")
+        print("I'm not sure I understand.")
 
 
 # Use an infinite loop to keep the conversation going
