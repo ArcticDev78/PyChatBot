@@ -59,7 +59,7 @@ def chatbot():
             'responses': ['Are you sure?', 'Ok.', 'Okay.'],
         },
         'yes': {
-            'triggers': ['yes', 'yeah', 'ye', 'yea', 'yep'],
+            'triggers': ['yes', 'yeah', 'ye', 'yea', 'yep', 'ya'],
             'responses': ['Fine.', 'Ok.'],
         },
         'no': {
@@ -85,47 +85,36 @@ def chatbot():
     }
 
     if userinput in db['greetings']['triggers']:
-        # print(random(db['noyou']['responses']))
-        # result = db['greetings']['responses'][randint(0, 4)]
         sendBotMsg(random(db['greetings']['responses']))
 
     elif userinput in db['bye']['triggers']:
-        # result = db['bye']['responses'][randint(0, 2)]
         sendBotMsg(random(db['bye']['responses']))
 
     elif userinput in db['thankyou']['triggers']:
-        # result = db['bye']['responses'][randint(0, 2)]
         sendBotMsg(random(db['thankyou']['responses']))
 
     elif userinput in db['good']['triggers']:
-        # result = db['good']['responses'][randint(0, 1)]
         sendBotMsg(random(db['good']['responses']))
 
     elif userinput in db['ok']['triggers']:
-        # result = db['ok']['responses'][randint(0, 1)]
         sendBotMsg(random(db['ok']['responses']))
 
     elif userinput in db['yes']['triggers']:
-        # result = db['yes']['responses'][randint(0, 1)]
         sendBotMsg(random(db['yes']['responses']))
 
     elif userinput in db['no']['triggers']:
-        # result = db['no']['responses'][randint(0, 1)]
         sendBotMsg(random(db['no']['responses']))
 
     elif userinput in db['bored']['triggers']:
-        # result = db['bored']['responses'][randint(0, 1)]
         sendBotMsg(random(db['bored']['responses']))
 
     elif userinput in db['nameask']['triggers']:
         sendBotMsg(db['nameask']['responses'])
 
     elif userinput in db['noyou']['triggers']:
-        # result = db['noyou']['responses'][randint(0, 1)]
         sendBotMsg(random(db['noyou']['responses']))
 
     elif userinput in db['stutterwords']['triggers']:
-        # result = db['stutterwords']['responses'][randint(0, 2)]
         sendBotMsg(random(db['stutterwords']['responses']))
 
     elif userinput == 'idk':
