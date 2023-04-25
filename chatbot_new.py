@@ -44,7 +44,7 @@ def chatbot():
         },
         'bye': {
             'triggers': ['bye', 'cya', 'gtg', 'ttyl', 'i gtg', 'gtg bye'],
-            'responses': [f'See you later, {name}!', f'Bye, {name}!', f'Cya later, {name}!'],
+            'responses': [f'See you later, {name}!', f'Bye, {name}!', f'Cya later, {name}!'],  # noqa
         },
         'thankyou': {
             'triggers': ['ty', 'tysm', 'thanks', 'thank you'],
@@ -72,7 +72,7 @@ def chatbot():
         },
         'nameask': {
             'triggers': ['what\'s your name?', 'whats your name?', 'what\'s your name', 'whats your name', 'whats ur name', 'whats ur name?'],  # noqa
-            'responses': f'My name is {chatbotName}, the awesome chatbot! Nice to meet you, {name}',
+            'responses': f'My name is {chatbotName}, the awesome chatbot! Nice to meet you, {name}',  # noqa
         },
         'noyou': {
             'triggers': ['no u', 'no you'],
