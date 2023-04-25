@@ -83,78 +83,46 @@ def chatbot():
     # ]
 
     if userinput in db['greetings']['triggers']:
-        # replies = ['Hello there!', 'Hi!', 'Hey!', 'What\'s up?', 'Sup!']
         # print(random(db['noyou']['responses']))
         result = db['greetings']['responses'][randint(0, 4)]
         sendBotMsg(result)
 
-    # byetriggers = ['bye', 'cya', 'gtg', 'ttyl']
-
     elif userinput in db['bye']['triggers']:
-        # replies = ['See you later!', 'Bye!', 'Cya!']
         result = db['bye']['responses'][randint(0, 2)]
         sendBotMsg(result)
-
-    # thankyou = ['np', 'you\'re welcome', 'welcome', 'ty', 'tysm']
 
     elif userinput in db['thankyou']['triggers']:
-        # replies = ['No problem!', 'You\'re welcome!', 'Welcome!']
         result = db['bye']['responses'][randint(0, 2)]
         sendBotMsg(result)
 
-    # goodtriggers = ['good', 'great', 'nice', 'noice', 'cool']
-
     elif userinput in db['good']['triggers']:
-        # replies = ['Awesome!', 'Great!']
         result = db['good']['responses'][randint(0, 1)]
         sendBotMsg(result)
 
     elif userinput in db['ok']['triggers']:
-        # replies = ['Are you sure?', 'Ok.']
         result = db['ok']['responses'][randint(0, 1)]
         sendBotMsg(result)
 
     elif userinput in db['yes']['triggers']:
-        # replies = ['Fine.', 'Ok.']
         result = db['yes']['responses'][randint(0, 1)]
         sendBotMsg(result)
 
     elif userinput in db['no']['triggers']:
-        # replies = ['Why not?', 'Don\'t say that again!']
         result = db['no']['responses'][randint(0, 1)]
         sendBotMsg(result)
-
-    # yeahtriggers = ['yeah', 'yea', 'ya']
-
-    # elif userinput in yeahtriggers:
-    # print('Ok!')
-
-    # bored = ['i\'m bored', 'im bored']
 
     elif userinput in db['bored']['triggers']:
         result = db['bored']['responses'][randint(0, 1)]
         sendBotMsg(result)
-        # print("Say goodbye to your boredom and chat with me!")
-
-    # nameask = [
-        # 'what\'s your name?', 'whats your name?', 'what\'s your name',
-        # 'whats your name', 'whats ur name', 'whats ur name?',
-    # ]
 
     elif userinput in db['nameask']['triggers']:
         sendBotMsg(db['nameask']['responses'])
 
-    # noyou = ['no you', 'no u']
-
     elif userinput in db['noyou']['triggers']:
-        # replies = ['no u', 'no you']
         result = db['noyou']['responses'][randint(0, 1)]
         sendBotMsg(result)
 
-    # stutterwords = ["uh", "uhm", "uh-", "uhm-", "uhh"]
-
     elif userinput in db['stutterwords']['triggers']:
-        # replies = ["Hm?", "?", "What?"]
         result = db['stutterwords']['responses'][randint(0, 2)]
         sendBotMsg(result)
 
